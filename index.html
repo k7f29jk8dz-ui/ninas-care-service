@@ -1,84 +1,784 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nina's Care Service | Massage & Relaxation</title>
-<meta name="description" content="Nina's Care Service — professional Nuru and deep tissue massage services in the USA.">
-<style>
-:root{--pink:#e85b91;--dark:#24151d;--soft:#fff3f7;--muted:#745b66;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--dark);background:#fff9fb;line-height:1.6}
-nav{position:fixed;top:0;width:100%;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid #f4dbe5}
-.navin{max-width:1100px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;letter-spacing:.5px}.logo span{color:var(--pink)}
-nav a{color:var(--dark);text-decoration:none;margin-left:22px;font-size:14px}
-.btn{display:inline-block;background:var(--pink);color:#fff;text-decoration:none;padding:13px 21px;border-radius:999px;font-weight:700;box-shadow:0 8px 20px rgba(232,91,145,.22)}
-.hero{min-height:90vh;padding:145px 22px 80px;display:grid;place-items:center;background:radial-gradient(circle at 80% 20%,#ffd9e6 0,transparent 32%),linear-gradient(135deg,#fff8fb,#ffe9f1)}
-.hero-inner{max-width:1100px;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
-.eyebrow{color:var(--pink);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:12px}
-h1{font-size:clamp(44px,7vw,76px);line-height:.98;margin:12px 0 22px}
-.hero p{font-size:18px;color:var(--muted);max-width:580px}
-.card{background:#fff;border:1px solid #f3dce5;border-radius:28px;padding:38px;box-shadow:0 25px 70px rgba(67,25,44,.1)}
-.card h2{margin-top:0;font-size:28px}.quote{font-size:20px;font-weight:700}
-section{padding:90px 22px}.wrap{max-width:1100px;margin:auto}
-.section-head{text-align:center;max-width:650px;margin:0 auto 45px}.section-head h2{font-size:40px;margin:8px 0}.section-head p{color:var(--muted)}
-.services{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.service{background:#fff;border-radius:24px;padding:30px;border:1px solid #f2dce5}.price{font-size:32px;font-weight:800;color:var(--pink)}.service h3{font-size:24px;margin:8px 0}
-.about{background:var(--soft)}.aboutbox{max-width:800px;margin:auto;text-align:center}
-.booking{background:#24151d;color:#fff}.booking .section-head p{color:#d8bec8}
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:24px}.contact a{color:var(--pink);font-weight:700}
-footer{padding:30px 22px;text-align:center;color:var(--muted);font-size:13px}
-@media(max-width:760px){nav .links{display:none}.hero-inner,.services,.contact{grid-template-columns:1fr}.hero{padding-top:125px}section{padding:70px 18px}.card{padding:28px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nina's Care Service | Massage & Relaxation</title>
+
+  <meta
+    name="description"
+    content="Nina's Care Service offers professional Nuru-inspired and deep tissue massage services in the USA."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --pink: #e85b91;
+      --pink-light: #fff0f6;
+      --pink-dark: #c63f72;
+      --dark: #21151d;
+      --text: #30252b;
+      --muted: #756a70;
+      --white: #ffffff;
+      --border: #ead5de;
+      --background: #fff9fb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .logo span {
+      color: var(--pink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+
+    .nav-button {
+      background: var(--pink);
+      color: white !important;
+      padding: 10px 17px;
+      border-radius: 999px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 20%, #ffd6e5 0, transparent 30%),
+        linear-gradient(135deg, #fff9fb 0%, #ffeaf2 100%);
+      padding: 80px 0;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--pink-dark);
+      background: #ffe0eb;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 8vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      color: var(--dark);
+    }
+
+    h1 span {
+      color: var(--pink);
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 19px;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--pink);
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: var(--pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .button-secondary:hover {
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.1;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 12px 35px rgba(70, 30, 45, 0.06);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      background: var(--pink-light);
+      border-radius: 16px;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .service-card p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 27px;
+      font-weight: 900;
+      color: var(--pink-dark);
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: var(--pink-light);
+    }
+
+    .about-box {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-box h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      color: var(--dark);
+      margin-bottom: 18px;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    /* BOOKING */
+
+    .booking {
+      background: var(--dark);
+      color: white;
+    }
+
+    .booking-box {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .booking-box h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 15px;
+    }
+
+    .booking-box p {
+      color: #d9cdd2;
+      margin-bottom: 28px;
+    }
+
+    .booking .button-secondary {
+      color: var(--dark);
+    }
+
+    /* RULES */
+
+    .rules {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .rule {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .rule strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--dark);
+    }
+
+    .rule p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-card {
+      max-width: 650px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 35px;
+    }
+
+    .contact-card h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .email {
+      display: inline-block;
+      color: var(--pink-dark);
+      font-size: 18px;
+      font-weight: 800;
+      margin: 12px 0 22px;
+      word-break: break-word;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #160f13;
+      color: #cfc3c8;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    footer p {
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 720px) {
+
+      .nav-inner {
+        min-height: 62px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 78vh;
+        padding: 70px 0;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .services,
+      .rules {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 26px;
+      }
+
+      .contact-card {
+        padding: 28px 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<nav><div class="navin"><div class="logo">Nina's <span>Care Service</span></div><div class="links"><a href="#services">Services</a><a href="#about">About</a><a href="#policies">Policies</a><a href="#contact">Contact</a><a class="btn" href="mailto:sillypie94@gmail.com?subject=Booking%20Request">Book Now</a></div></div></nav>
 
-<header class="hero">
-<div class="hero-inner">
-<div>
-<div class="eyebrow">Massage & Relaxation</div>
-<h1>Relax. Unwind. Feel cared for.</h1>
-<p>Welcome to Nina's Care Service — a comfortable, private space focused on helping you slow down, release tension, and enjoy a relaxing massage experience.</p>
-<a class="btn" href="mailto:sillypie94@gmail.com?subject=Booking%20Request">Book a Session</a>
-</div>
-<div class="card">
-<div class="eyebrow">Nina's Care Service</div>
-<h2>Choose your experience</h2>
-<p class="quote">Professional massage. Personal care. A calmer you.</p>
-<p>Serving clients in the USA. Contact us to discuss availability and booking details.</p>
-</div>
-</div>
-</header>
+  <!-- NAVIGATION -->
 
-<section id="services"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Services</div><h2>Massage Menu</h2><p>Choose the session that best fits what you are looking for.</p></div>
-<div class="services">
-<div class="service"><div class="price">$150</div><h3>Nuru Massage</h3><p>A full-body massage experience focused on relaxation and a soothing, unhurried atmosphere.</p><a class="btn" href="mailto:sillypie94@gmail.com?subject=Nuru%20Massage%20Booking">Book Nuru</a></div>
-<div class="service"><div class="price">$100</div><h3>Deep Tissue Massage</h3><p>Targeted, firmer pressure designed to work through areas of muscle tension and help you relax.</p><a class="btn" href="mailto:sillypie94@gmail.com?subject=Deep%20Tissue%20Booking">Book Deep Tissue</a></div>
-</div></div></section>
+  <nav>
+    <div class="container nav-inner">
 
-<section id="about" class="about"><div class="aboutbox"><div class="eyebrow">About</div><h2>Care that puts your comfort first</h2><p>Nina's Care Service is built around a simple idea: you deserve time to relax and be cared for. Sessions are arranged by appointment so we can focus on providing a comfortable experience from start to finish.</p></div></section>
+      <a href="#home" class="logo">
+        Nina's <span>Care Service</span>
+      </a>
 
-<section id="contact"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Contact</div><h2>Ready to book?</h2><p>Send a message with your preferred service and availability.</p></div>
-<div class="contact">
-<div class="card"><h3>Email</h3><p><a href="mailto:sillypie94@gmail.com">sillypie94@gmail.com</a></p></div>
-<div class="card"><h3>X</h3><p><a href="https://x.com/Purelinda" target="_blank" rel="noopener">@Purelinda</a></p></div>
-</div>
-</div></section>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="#booking" class="nav-button">Book Now</a>
+        </li>
+      </ul>
 
-<section id="policies" class="about"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Before You Book</div><h2>Client Policies</h2><p>Please review these policies before requesting an appointment.</p></div>
-<div class="services">
-<div class="service"><h3>First-Time Clients</h3><p>A <strong>$50 non-refundable deposit</strong> is required upfront to secure your reservation and confirm your booking. Once the deposit is received, your booking code will be sent directly to you.</p></div>
-<div class="service"><h3>Guests & Companions</h3><p>No additional guests, friends, or companions are permitted during meetups. Please arrive alone unless otherwise approved in advance.</p></div>
-<div class="service"><h3>Substances</h3><p>If you are using or have used any drugs or other substances that could affect your behavior or safety, this must be disclosed beforehand.</p></div>
-<div class="service"><h3>Weapons Policy</h3><p><strong>Firearms and weapons of any kind are strictly prohibited.</strong> Anyone found carrying a weapon will not be permitted to proceed with the appointment.</p></div>
-</div></div></section>
+    </div>
+  </nav>
 
-<section class="booking"><div class="wrap"><div class="section-head"><div class="eyebrow">Appointments</div><h2>Make time for yourself.</h2><p>Contact Nina's Care Service to arrange an appointment.</p><a class="btn" href="mailto:sillypie94@gmail.com?subject=Appointment%20Request">Request an Appointment</a></div></div></section>
 
-<footer>© 2026 Nina's Care Service · USA</footer>
+  <!-- HERO -->
+
+  <main id="home">
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Massage & Relaxation
+          </div>
+
+          <h1>
+            Relax. Reset.<br>
+            <span>Feel Better.</span>
+          </h1>
+
+          <p>
+            Welcome to Nina's Care Service — a private massage service
+            focused on relaxation, comfort, and professional care.
+          </p>
+
+          <div class="buttons">
+
+            <a href="#booking" class="button button-primary">
+              Book a Massage
+            </a>
+
+            <a href="#services" class="button button-secondary">
+              View Services
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>Massage Services</h2>
+
+          <p>
+            Choose the massage that best fits your relaxation and wellness needs.
+          </p>
+
+        </div>
+
+
+        <div class="services">
+
+          <article class="service-card">
+
+            <div class="service-icon">
+              ♡
+            </div>
+
+            <h3>
+              Nuru-Inspired Massage
+            </h3>
+
+            <p>
+              A relaxing full-body massage experience designed around
+              comfort, relaxation, and personal care.
+            </p>
+
+            <div class="price">
+              $150
+            </div>
+
+          </article>
+
+
+          <article class="service-card">
+
+            <div class="service-icon">
+              ✦
+            </div>
+
+            <h3>
+              Deep Tissue Massage
+            </h3>
+
+            <p>
+              A focused massage designed to help relieve muscle tension
+              and promote relaxation.
+            </p>
+
+            <div class="price">
+              $100
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="about">
+
+      <div class="container">
+
+        <div class="about-box">
+
+          <h2>
+            Welcome to Nina's Care Service
+          </h2>
+
+          <p>
+            My goal is to provide a comfortable and professional environment
+            where clients can take time to relax, unwind, and enjoy quality
+            massage care.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOOKING -->
+
+    <section id="booking" class="booking">
+
+      <div class="container">
+
+        <div class="booking-box">
+
+          <h2>
+            Ready to Book?
+          </h2>
+
+          <p>
+            First-time clients are required to provide a non-refundable
+            $50 deposit to secure their reservation. Once the deposit is
+            received, your booking confirmation will be sent directly to you.
+          </p>
+
+          <a
+            href="mailto:Sillypie94@gmail.com?subject=Massage%20Booking%20Request"
+            class="button button-primary"
+          >
+            Request a Booking
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RULES -->
+
+    <section id="rules">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>Client Guidelines</h2>
+
+          <p>
+            Please review these guidelines before requesting an appointment.
+          </p>
+
+        </div>
+
+
+        <div class="rules">
+
+          <div class="rule">
+
+            <strong>
+              $50 First-Time Deposit
+            </strong>
+
+            <p>
+              A non-refundable $50 deposit is required upfront
+              to secure your first appointment.
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <strong>
+              Booking Confirmation
+            </strong>
+
+            <p>
+              Your booking confirmation will be provided after
+              the required deposit is received.
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <strong>
+              No Additional Guests
+            </strong>
+
+            <p>
+              No additional guests or friends are permitted during appointments.
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <strong>
+              Substance Disclosure
+            </strong>
+
+            <p>
+              Clients must disclose beforehand if they have used
+              alcohol or other substances that may affect the appointment.
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <strong>
+              No Weapons
+            </strong>
+
+            <p>
+              Firearms and weapons of any kind are strictly prohibited.
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <strong>
+              Respect & Safety
+            </strong>
+
+            <p>
+              Respectful behavior is required at all times. Appointments
+              may be ended if safety or professional boundaries are compromised.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+      <div class="container">
+
+        <div class="contact-card">
+
+          <h2>
+            Contact Nina
+          </h2>
+
+          <p>
+            For availability, questions, or booking requests:
+          </p>
+
+          <a
+            href="mailto:Sillypie94@gmail.com"
+            class="email"
+          >
+            Sillypie94@gmail.com
+          </a>
+
+          <br>
+
+          <a
+            href="mailto:Sillypie94@gmail.com?subject=Massage%20Booking%20Request"
+            class="button button-primary"
+          >
+            Email for Availability
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      <strong>Nina's Care Service</strong>
+    </p>
+
+    <p>
+      Massage & Relaxation • USA
+    </p>
+
+    <p>
+      © 2026 Nina's Care Service. All rights reserved.
+    </p>
+
+  </footer>
+
 </body>
 </html>
