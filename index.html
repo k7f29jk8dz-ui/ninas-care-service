@@ -371,12 +371,6 @@
       box-shadow: 0 12px 35px rgba(70, 30, 45, 0.06);
     }
 
-    .payment-card h2 {
-      font-size: 36px;
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
     .payment-card h3 {
       font-size: 25px;
       color: var(--dark);
@@ -424,11 +418,6 @@
       word-break: break-all;
     }
 
-    .btc-address span {
-      display: block;
-      margin-top: 8px;
-    }
-
     /* GIFT CARDS */
 
     .gift-cards {
@@ -441,7 +430,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 25px;
-      align-items: stretch;
     }
 
     .gift-info {
@@ -478,7 +466,6 @@
 
     .gift-info li {
       margin: 10px 0;
-      color: var(--text);
     }
 
     .gift-form {
@@ -608,16 +595,14 @@
     /* MOBILE */
 
     @media (max-width: 850px) {
-      .additional-services {
-        grid-template-columns: 1fr;
-      }
-
+      .additional-services,
       .gift-card-wrapper {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 720px) {
+
       .nav-inner {
         min-height: 62px;
       }
@@ -719,11 +704,17 @@
 
           <div class="buttons">
 
-            <a href="#booking" class="button button-primary">
+            <a
+              href="#booking"
+              class="button button-primary"
+            >
               Book a Service
             </a>
 
-            <a href="#giftcards" class="button button-secondary">
+            <a
+              href="#giftcards"
+              class="button button-secondary"
+            >
               🎁 Gift Cards
             </a>
 
@@ -931,6 +922,9 @@
 
         <div class="gift-card-wrapper">
 
+
+          <!-- GIFT CARD INFORMATION -->
+
           <div class="gift-info">
 
             <div class="gift-info-icon">
@@ -942,19 +936,38 @@
             </h3>
 
             <p>
-              Choose a gift-card amount and send it directly to someone special.
+              Choose a gift-card amount and send it directly
+              to someone special.
             </p>
 
             <ul>
-              <li>✓ $50 Gift Card</li>
-              <li>✓ $100 Gift Card</li>
-              <li>✓ $150 Gift Card</li>
-              <li>✓ Custom amount</li>
-              <li>✓ Personalized message</li>
+
+              <li>
+                ✓ $50 Gift Card
+              </li>
+
+              <li>
+                ✓ $100 Gift Card
+              </li>
+
+              <li>
+                ✓ $150 Gift Card
+              </li>
+
+              <li>
+                ✓ Custom Amount
+              </li>
+
+              <li>
+                ✓ Personalized Message
+              </li>
+
             </ul>
 
           </div>
 
+
+          <!-- GIFT CARD FORM -->
 
           <div class="gift-form">
 
@@ -970,7 +983,10 @@
                   Gift Card Amount
                 </label>
 
-                <select id="giftAmount" required>
+                <select
+                  id="giftAmount"
+                  required
+                >
 
                   <option value="">
                     Select an amount
@@ -997,6 +1013,8 @@
               </div>
 
 
+              <!-- CUSTOM AMOUNT -->
+
               <div
                 class="form-group"
                 id="customAmountGroup"
@@ -1018,6 +1036,8 @@
               </div>
 
 
+              <!-- RECIPIENT -->
+
               <div class="form-group">
 
                 <label for="recipientName">
@@ -1033,6 +1053,8 @@
 
               </div>
 
+
+              <!-- RECIPIENT EMAIL -->
 
               <div class="form-group">
 
@@ -1050,6 +1072,8 @@
               </div>
 
 
+              <!-- BUYER -->
+
               <div class="form-group">
 
                 <label for="senderName">
@@ -1066,14 +1090,16 @@
               </div>
 
 
+              <!-- MESSAGE -->
+
               <div class="form-group">
 
-                <label for="giftMessage">
+                <label for="giftMessageText">
                   Personal Message
                 </label>
 
                 <textarea
-                  id="giftMessage"
+                  id="giftMessageText"
                   placeholder="Write a message..."
                 ></textarea>
 
@@ -1090,8 +1116,8 @@
 
 
               <p class="gift-note">
-                Gift cards are subject to availability and the service
-                provider's redemption terms.
+                Gift cards are subject to availability and
+                the service provider's redemption terms.
               </p>
 
 
@@ -1168,7 +1194,9 @@
 
         <div class="section-heading">
 
-          <h2>Client Guidelines</h2>
+          <h2>
+            Client Guidelines
+          </h2>
 
           <p>
             Please review these guidelines before requesting an appointment.
@@ -1408,11 +1436,13 @@
   </footer>
 
 
-  <!-- GIFT CARD FORM SCRIPT -->
+  <!-- GIFT CARD SCRIPT -->
 
   <script>
 
-    const giftAmount = document.getElementById("giftAmount");
+    const giftAmount =
+      document.getElementById("giftAmount");
+
     const customAmountGroup =
       document.getElementById("customAmountGroup");
 
@@ -1426,68 +1456,109 @@
       document.getElementById("giftCardMessage");
 
 
-    giftAmount.addEventListener("change", function () {
+    /* SHOW CUSTOM AMOUNT */
 
-      if (this.value === "custom") {
+    giftAmount.addEventListener(
+      "change",
+      function () {
 
-        customAmountGroup.style.display = "block";
-        customAmount.required = true;
+        if (this.value === "custom") {
 
-      } else {
+          customAmountGroup.style.display = "block";
+          customAmount.required = true;
 
-        customAmountGroup.style.display = "none";
-        customAmount.required = false;
-        customAmount.value = "";
+        } else {
+
+          customAmountGroup.style.display = "none";
+          customAmount.required = false;
+          customAmount.value = "";
+
+        }
 
       }
+    );
 
-    });
+
+    /* GIFT CARD FORM */
+
+    giftCardForm.addEventListener(
+      "submit",
+      function (event) {
+
+        event.preventDefault();
 
 
-    giftCardForm.addEventListener("submit", function (event) {
+        let amount = giftAmount.value;
 
-      event.preventDefault();
 
-      let amount = giftAmount.value;
+        if (!amount) {
 
-      if (amount === "custom") {
-
-        amount = customAmount.value;
-
-        if (!amount || Number(amount) < 1) {
-
-          giftCardMessage.style.display = "block";
-
-          giftCardMessage.textContent =
-            "Please enter a valid gift-card amount.";
+          showMessage(
+            "Please select a gift-card amount."
+          );
 
           return;
 
         }
 
+
+        if (amount === "custom") {
+
+          amount = customAmount.value;
+
+
+          if (!amount || Number(amount) < 1) {
+
+            showMessage(
+              "Please enter a valid gift-card amount."
+            );
+
+            return;
+
+          }
+
+        }
+
+
+        const recipient =
+          document.getElementById("recipientName").value;
+
+        const recipientEmail =
+          document.getElementById("recipientEmail").value;
+
+        const sender =
+          document.getElementById("senderName").value;
+
+
+        /*
+          PAYMENT PLACEHOLDER
+
+          The form is working, but real payment processing
+          must be connected to a secure payment provider.
+
+          Never place private payment API secret keys inside
+          this HTML file.
+        */
+
+
+        showMessage(
+          "Gift card request received for $" +
+          Number(amount).toFixed(2) +
+          " for " +
+          recipient +
+          ". A payment system still needs to be connected before payment can be completed."
+        );
+
       }
+    );
 
 
-      /*
-        PAYMENT INTEGRATION GOES HERE.
-
-        This demo currently does not charge the customer.
-
-        For a real gift-card system, this button should send the
-        order to your secure payment server/payment provider.
-
-        Never put private payment API secret keys in this HTML file.
-      */
-
+    function showMessage(message) {
 
       giftCardMessage.style.display = "block";
+      giftCardMessage.textContent = message;
 
-      giftCardMessage.textContent =
-        "Gift card selected for $" +
-        Number(amount).toFixed(2) +
-        ". Payment processing will be connected next.";
-
-    });
+    }
 
   </script>
 
