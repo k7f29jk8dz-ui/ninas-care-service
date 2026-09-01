@@ -8,26 +8,29 @@
 
   <meta
     name="description"
-    content="Nina's Care Service offers professional massage, relaxation and private appointment services."
+    content="Nina's Care Service offers professional massage, relaxation and wellness appointments."
   >
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     :root {
       --pink: #e85b91;
-      --pink-light: #fff0f6;
       --pink-dark: #c63f72;
+      --pink-light: #fff0f6;
+      --pink-soft: #ffe1ec;
       --dark: #21151d;
       --text: #30252b;
       --muted: #756a70;
       --white: #ffffff;
       --border: #ead5de;
-      --background: #fff9fb;
+      --bg: #fff9fb;
+      --green: #168a62;
+      --btc: #f7931a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -42,7 +45,7 @@
         Roboto,
         Arial,
         sans-serif;
-      background: var(--background);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -54,7 +57,7 @@
 
     .container {
       width: min(1100px, 92%);
-      margin: 0 auto;
+      margin: auto;
     }
 
     /* NAVIGATION */
@@ -62,8 +65,8 @@
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
+      z-index: 999;
+      background: rgba(255,255,255,.96);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(10px);
     }
@@ -78,7 +81,7 @@
 
     .logo {
       font-size: 21px;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--dark);
     }
 
@@ -87,15 +90,15 @@
     }
 
     .nav-links {
-      display: flex;
-      gap: 22px;
-      align-items: center;
       list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 22px;
     }
 
     .nav-links a {
-      font-weight: 600;
       font-size: 14px;
+      font-weight: 700;
     }
 
     .nav-links a:hover {
@@ -112,46 +115,46 @@
     /* HERO */
 
     .hero {
-      min-height: 80vh;
+      min-height: 82vh;
       display: flex;
       align-items: center;
       background:
         radial-gradient(
-          circle at 80% 20%,
-          #ffd6e5 0,
+          circle at 85% 15%,
+          #ffd1e2 0,
           transparent 30%
         ),
         linear-gradient(
           135deg,
-          #fff9fb 0%,
-          #ffeaf2 100%
+          #fff9fb,
+          #ffeaf2
         );
-      padding: 80px 0;
     }
 
     .hero-content {
       max-width: 760px;
+      padding: 80px 0;
     }
 
     .eyebrow {
       display: inline-block;
+      background: var(--pink-soft);
       color: var(--pink-dark);
-      background: #ffe0eb;
-      padding: 7px 13px;
+      padding: 7px 14px;
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 18px;
-      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 900;
       letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(44px, 8vw, 78px);
-      line-height: 0.98;
-      letter-spacing: -2px;
-      margin-bottom: 24px;
+      font-size: clamp(45px, 8vw, 80px);
+      line-height: .98;
+      letter-spacing: -3px;
       color: var(--dark);
+      margin-bottom: 25px;
     }
 
     h1 span {
@@ -160,8 +163,8 @@
 
     .hero p {
       max-width: 650px;
-      font-size: 19px;
       color: var(--muted);
+      font-size: 19px;
       margin-bottom: 30px;
     }
 
@@ -173,10 +176,12 @@
 
     .button {
       display: inline-block;
-      padding: 14px 22px;
+      padding: 14px 23px;
       border-radius: 999px;
       font-weight: 800;
-      transition: 0.2s ease;
+      transition: .2s;
+      border: none;
+      cursor: pointer;
     }
 
     .button-primary {
@@ -190,8 +195,8 @@
     }
 
     .button-secondary {
-      border: 1px solid var(--border);
       background: white;
+      border: 1px solid var(--border);
     }
 
     .button-secondary:hover {
@@ -206,9 +211,9 @@
     }
 
     .section-heading {
-      max-width: 650px;
-      margin: 0 auto 45px;
+      max-width: 680px;
       text-align: center;
+      margin: 0 auto 45px;
     }
 
     .section-heading h2 {
@@ -222,32 +227,25 @@
       color: var(--muted);
     }
 
-    /* SERVICE GRIDS */
+    /* CARDS */
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .additional-services {
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
-      margin-top: 22px;
     }
 
-    .service-card {
+    .card {
       background: white;
       border: 1px solid var(--border);
       border-radius: 24px;
-      padding: 32px;
-      box-shadow: 0 12px 35px rgba(70, 30, 45, 0.06);
+      padding: 30px;
+      box-shadow: 0 12px 35px rgba(70,30,45,.06);
     }
 
-    .service-icon {
-      width: 54px;
-      height: 54px;
+    .icon {
+      width: 55px;
+      height: 55px;
       display: grid;
       place-items: center;
       background: var(--pink-light);
@@ -256,19 +254,19 @@
       margin-bottom: 20px;
     }
 
-    .service-card h3 {
-      font-size: 24px;
-      margin-bottom: 8px;
+    .card h3 {
       color: var(--dark);
+      font-size: 23px;
+      margin-bottom: 9px;
     }
 
-    .service-card p {
+    .card p {
       color: var(--muted);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .price {
-      font-size: 27px;
+      font-size: 28px;
       font-weight: 900;
       color: var(--pink-dark);
     }
@@ -281,12 +279,12 @@
 
     .about-box {
       max-width: 850px;
-      margin: 0 auto;
+      margin: auto;
       text-align: center;
     }
 
     .about-box h2 {
-      font-size: clamp(32px, 5vw, 48px);
+      font-size: clamp(32px,5vw,48px);
       color: var(--dark);
       margin-bottom: 18px;
     }
@@ -304,19 +302,23 @@
     }
 
     .booking-box {
-      max-width: 850px;
-      margin: 0 auto;
+      max-width: 800px;
+      margin: auto;
       text-align: center;
     }
 
     .booking-box h2 {
-      font-size: clamp(32px, 5vw, 48px);
+      font-size: clamp(34px,5vw,50px);
       margin-bottom: 15px;
     }
 
     .booking-box p {
       color: #d9cdd2;
-      margin-bottom: 28px;
+      margin-bottom: 27px;
+    }
+
+    .booking-box .button-secondary {
+      color: var(--dark);
     }
 
     /* RULES */
@@ -336,8 +338,8 @@
 
     .rule strong {
       display: block;
-      margin-bottom: 5px;
       color: var(--dark);
+      margin-bottom: 5px;
     }
 
     .rule p {
@@ -345,55 +347,112 @@
       font-size: 15px;
     }
 
-    /* PAYMENT */
+    /* GIFT CARDS */
 
-    .payment {
-      background: #fff0f6;
+    .gift {
+      background: linear-gradient(135deg,#fff0f6,#fff9fb);
     }
 
-    .payment-card {
+    .gift-box {
       max-width: 850px;
-      margin: 0 auto;
+      margin: auto;
+      text-align: center;
       background: white;
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 35px;
-      text-align: center;
-      box-shadow: 0 12px 35px rgba(70, 30, 45, 0.06);
+      border-radius: 25px;
+      padding: 40px 25px;
+      box-shadow: 0 12px 35px rgba(70,30,45,.06);
     }
 
-    .payment-card h2 {
+    .gift-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .gift-box h2 {
       font-size: 36px;
       color: var(--dark);
       margin-bottom: 12px;
     }
 
-    .payment-card p {
+    .gift-box p {
+      max-width: 600px;
+      margin: 0 auto 25px;
       color: var(--muted);
-      margin-bottom: 20px;
     }
 
-    .btc-box {
-      background: #fff9fb;
-      border: 1px dashed var(--pink);
-      border-radius: 16px;
+    /* PAYMENT */
+
+    .payment {
+      background: #fff4e8;
+    }
+
+    .payment-box {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border: 1px solid #efd8c0;
+      border-radius: 25px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(80,50,20,.06);
+    }
+
+    .bitcoin-icon {
+      width: 65px;
+      height: 65px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: var(--btc);
+      color: white;
+      font-size: 35px;
+      font-weight: 900;
+    }
+
+    .payment-box h2 {
+      font-size: 36px;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .payment-box p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .btc-address-box {
+      background: #fffaf5;
+      border: 1px dashed var(--btc);
+      border-radius: 15px;
       padding: 18px;
       margin: 20px 0;
-      overflow-wrap: anywhere;
     }
 
     .btc-label {
       display: block;
-      font-weight: 800;
-      color: var(--pink-dark);
+      color: #c56c00;
+      font-weight: 900;
       margin-bottom: 8px;
     }
 
     .btc-address {
+      display: block;
+      word-break: break-all;
       font-family: monospace;
       font-size: 14px;
       color: var(--dark);
-      word-break: break-all;
+    }
+
+    .copy-button {
+      margin-top: 15px;
+      background: var(--dark);
+      color: white;
+    }
+
+    .copy-button:hover {
+      opacity: .85;
     }
 
     /* CONTACT */
@@ -402,39 +461,41 @@
       text-align: center;
     }
 
-    .contact-card {
-      max-width: 650px;
-      margin: 0 auto;
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
       background: white;
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 35px;
+      border-radius: 25px;
+      padding: 38px 25px;
+      box-shadow: 0 12px 35px rgba(70,30,45,.06);
     }
 
-    .contact-card h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
+    .contact-box h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+      color: var(--dark);
     }
 
-    .email {
-      display: inline-block;
-      color: var(--pink-dark);
-      font-size: 18px;
-      font-weight: 800;
-      margin: 12px 0 22px;
-      word-break: break-word;
+    .contact-box > p {
+      color: var(--muted);
+      margin-bottom: 22px;
     }
 
-    .telegram {
-      display: inline-block;
+    .telegram-button {
+      background: #229ed9;
+      color: white;
+    }
+
+    .telegram-button:hover {
+      background: #168ac1;
+    }
+
+    .telegram-name {
       margin-top: 16px;
-      color: #168acb;
-      font-weight: 800;
+      color: #168ac1;
+      font-weight: 900;
       font-size: 18px;
-    }
-
-    .telegram:hover {
-      text-decoration: underline;
     }
 
     /* FOOTER */
@@ -443,7 +504,7 @@
       background: #160f13;
       color: #cfc3c8;
       text-align: center;
-      padding: 30px 15px;
+      padding: 35px 15px;
     }
 
     footer strong {
@@ -457,13 +518,13 @@
 
     /* MOBILE */
 
-    @media (max-width: 800px) {
-      .additional-services {
-        grid-template-columns: 1fr;
+    @media (max-width: 850px) {
+      .cards {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 700px) {
       .nav-inner {
         min-height: 62px;
       }
@@ -473,12 +534,15 @@
       }
 
       .hero {
-        min-height: 78vh;
-        padding: 70px 0;
+        min-height: 75vh;
+      }
+
+      .hero-content {
+        padding: 65px 0;
       }
 
       h1 {
-        letter-spacing: -1px;
+        letter-spacing: -1.5px;
       }
 
       .hero p {
@@ -489,17 +553,18 @@
         padding: 65px 0;
       }
 
-      .services,
+      .cards,
       .rules {
         grid-template-columns: 1fr;
       }
 
-      .service-card {
+      .card {
         padding: 26px;
       }
 
-      .contact-card,
-      .payment-card {
+      .payment-box,
+      .contact-box,
+      .gift-box {
         padding: 28px 20px;
       }
 
@@ -524,12 +589,10 @@
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#rules">Rules</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#giftcards">Gift Cards</a></li>
         <li><a href="#payment">Payment</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <a href="#booking" class="nav-button">Book Now</a>
-        </li>
+        <li><a href="#contact" class="nav-button">Contact</a></li>
       </ul>
 
     </div>
@@ -547,27 +610,28 @@
         <div class="hero-content">
 
           <div class="eyebrow">
-            Massage & Relaxation
+            Massage • Relaxation • Wellness
           </div>
 
           <h1>
-            Relax. Reset.<br>
-            <span>Feel Better.</span>
+            Relax.<br>
+            <span>Reset. Feel Better.</span>
           </h1>
 
           <p>
-            Welcome to Nina's Care Service — a private service
-            focused on relaxation, comfort, and professional care.
+            Welcome to Nina's Care Service. Enjoy a comfortable,
+            professional and relaxing massage experience tailored
+            to your needs.
           </p>
 
           <div class="buttons">
 
-            <a href="#booking" class="button button-primary">
-              Book a Service
+            <a href="#services" class="button button-primary">
+              View Services
             </a>
 
-            <a href="#services" class="button button-secondary">
-              View Services
+            <a href="#booking" class="button button-secondary">
+              Book an Appointment
             </a>
 
           </div>
@@ -579,7 +643,7 @@
     </section>
 
 
-    <!-- MAIN SERVICES -->
+    <!-- SERVICES -->
 
     <section id="services">
 
@@ -587,139 +651,61 @@
 
         <div class="section-heading">
 
-          <h2>Massage Services</h2>
+          <h2>Our Services</h2>
 
           <p>
-            Choose the service that best fits your relaxation and wellness needs.
+            Professional massage and relaxation options available
+            by appointment.
           </p>
 
         </div>
 
-        <div class="services">
+        <div class="cards">
 
-          <article class="service-card">
+          <article class="card">
 
-            <div class="service-icon">
-              ♡
-            </div>
+            <div class="icon">♡</div>
 
-            <h3>
-              Nuru-Inspired Massage
-            </h3>
+            <h3>Relaxation Massage</h3>
 
             <p>
-              A relaxing full-body massage experience designed around
-              comfort, relaxation, and personal care.
+              A calming massage experience designed to help you
+              unwind and feel refreshed.
             </p>
 
-            <div class="price">
-              $150
-            </div>
+            <div class="price">$100</div>
 
           </article>
 
 
-          <article class="service-card">
+          <article class="card">
 
-            <div class="service-icon">
-              ✦
-            </div>
+            <div class="icon">✦</div>
 
-            <h3>
-              Deep Tissue Massage
-            </h3>
+            <h3>Deep Tissue Massage</h3>
 
             <p>
-              A focused massage designed to help relieve muscle tension
+              Focused massage designed to target muscle tension
               and promote relaxation.
             </p>
 
-            <div class="price">
-              $100
-            </div>
-
-          </article>
-
-        </div>
-
-
-        <!-- ADDITIONAL SERVICES -->
-
-        <div
-          class="section-heading"
-          style="margin-top:75px;"
-        >
-
-          <h2>Additional Services</h2>
-
-          <p>
-            Additional options are available by appointment.
-          </p>
-
-        </div>
-
-
-        <div class="additional-services">
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              ♡
-            </div>
-
-            <h3>
-              FaceTime
-            </h3>
-
-            <p>
-              Private FaceTime session available by appointment.
-            </p>
-
-            <div class="price">
-              $30
-            </div>
+            <div class="price">$100</div>
 
           </article>
 
 
-          <article class="service-card">
+          <article class="card">
 
-            <div class="service-icon">
-              ✦
-            </div>
+            <div class="icon">♡</div>
 
-            <h3>
-              Content
-            </h3>
+            <h3>Full-Body Wellness</h3>
 
             <p>
-              Custom digital content available by request.
+              A personalized full-body wellness session focused
+              on comfort and relaxation.
             </p>
 
-            <div class="price">
-              $50
-            </div>
-
-          </article>
-
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              ♥
-            </div>
-
-            <h3>
-              Boyfriend Treatment
-            </h3>
-
-            <p>
-              A premium personalized companionship-style experience.
-            </p>
-
-            <div class="price">
-              $400
-            </div>
+            <div class="price">$150</div>
 
           </article>
 
@@ -738,14 +724,12 @@
 
         <div class="about-box">
 
-          <h2>
-            Welcome to Nina's Care Service
-          </h2>
+          <h2>About Nina's Care Service</h2>
 
           <p>
-            My goal is to provide a comfortable and professional
-            experience where clients can take time to relax,
-            unwind, and enjoy quality personal care.
+            Nina's Care Service provides a welcoming environment
+            for clients looking to relax, take a break from daily
+            stress, and enjoy professional personal care.
           </p>
 
         </div>
@@ -763,15 +747,13 @@
 
         <div class="booking-box">
 
-          <h2>
-            Ready to Book?
-          </h2>
+          <h2>Ready to Book?</h2>
 
           <p>
-            First-time clients are required to provide a
-            non-refundable $50 deposit to secure their reservation.
-            Once the deposit is received, your booking confirmation
-            will be sent directly to you.
+            Appointments are arranged in advance. A $50 first-time
+            deposit may be required to secure your appointment.
+            Please contact Nina first to confirm availability
+            and payment details.
           </p>
 
           <div class="buttons" style="justify-content:center;">
@@ -786,7 +768,7 @@
             <a
               href="https://t.me/purelinda02"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="button button-secondary"
             >
               Telegram
@@ -809,98 +791,56 @@
 
         <div class="section-heading">
 
-          <h2>Client Guidelines</h2>
+          <h2>Appointment Guidelines</h2>
 
           <p>
-            Please review these guidelines before requesting an appointment.
+            Please read before requesting an appointment.
           </p>
 
         </div>
 
-
         <div class="rules">
 
           <div class="rule">
-
-            <strong>
-              $50 First-Time Deposit
-            </strong>
-
+            <strong>First-Time Deposit</strong>
             <p>
-              A non-refundable $50 deposit is required upfront
-              to secure your first appointment.
+              A $50 deposit may be required to secure a first appointment.
             </p>
-
           </div>
 
-
           <div class="rule">
-
-            <strong>
-              Booking Confirmation
-            </strong>
-
+            <strong>Advance Booking</strong>
             <p>
-              Your booking confirmation will be provided after
-              the required deposit is received.
+              Please arrange your appointment in advance.
             </p>
-
           </div>
 
-
           <div class="rule">
-
-            <strong>
-              No Additional Guests
-            </strong>
-
+            <strong>Respect</strong>
             <p>
-              No additional guests or friends are permitted
-              during appointments.
+              Respectful behavior and professional boundaries are required.
             </p>
-
           </div>
 
-
           <div class="rule">
-
-            <strong>
-              Substance Disclosure
-            </strong>
-
+            <strong>Safety</strong>
             <p>
-              Clients must disclose beforehand if they have used
-              alcohol or other substances that may affect the appointment.
+              Weapons and firearms are not permitted.
             </p>
-
           </div>
 
-
           <div class="rule">
-
-            <strong>
-              No Weapons
-            </strong>
-
+            <strong>Guests</strong>
             <p>
-              Firearms and weapons of any kind are strictly prohibited.
+              Please discuss any additional guest with Nina before the appointment.
             </p>
-
           </div>
 
-
           <div class="rule">
-
-            <strong>
-              Respect & Safety
-            </strong>
-
+            <strong>Cancellation</strong>
             <p>
-              Respectful behavior is required at all times.
-              Appointments may be ended if safety or professional
-              boundaries are compromised.
+              Please provide reasonable notice if you need to reschedule.
             </p>
-
           </div>
 
         </div>
@@ -910,38 +850,99 @@
     </section>
 
 
-    <!-- BITCOIN PAYMENT -->
+    <!-- GIFT CARDS -->
+
+    <section id="giftcards" class="gift">
+
+      <div class="container">
+
+        <div class="gift-box">
+
+          <div class="gift-icon">🎁</div>
+
+          <h2>Gift Cards</h2>
+
+          <p>
+            Give someone the gift of relaxation. Gift cards can be
+            arranged for eligible massage and wellness services.
+          </p>
+
+          <a
+            href="mailto:Sillypie94@gmail.com?subject=Gift%20Card%20Request"
+            class="button button-primary"
+          >
+            Ask About Gift Cards
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PAYMENT -->
 
     <section id="payment" class="payment">
 
       <div class="container">
 
-        <div class="payment-card">
+        <div class="section-heading">
 
-          <h2>
-            Payment
-          </h2>
+          <h2>Payment Options</h2>
 
           <p>
             Bitcoin is available as a payment option.
-            Please confirm the payment details before sending funds.
+            Confirm the amount and address before sending.
           </p>
 
-          <div class="btc-box">
+        </div>
+
+        <div class="payment-box">
+
+          <div class="bitcoin-icon">₿</div>
+
+          <h2>Pay With Bitcoin</h2>
+
+          <p>
+            Use the button below to open a compatible Bitcoin wallet.
+          </p>
+
+          <div class="btc-address-box">
 
             <span class="btc-label">
               Bitcoin Address
             </span>
 
-            <div class="btc-address">
+            <span
+              class="btc-address"
+              id="btcAddress"
+            >
               bc1q73ucwzlw07qdfpf7hl2u499yluh98tej6m3zlk
-            </div>
+            </span>
+
+            <button
+              class="button copy-button"
+              onclick="copyBitcoinAddress()"
+            >
+              Copy Bitcoin Address
+            </button>
 
           </div>
 
-          <p>
-            After sending a payment, contact Nina with your
-            transaction details for confirmation.
+          <div class="buttons" style="justify-content:center;">
+
+            <a
+              href="bitcoin:bc1q73ucwzlw07qdfpf7hl2u499yluh98tej6m3zlk"
+              class="button button-primary"
+            >
+              ₿ Open Bitcoin Wallet
+            </a>
+
+          </div>
+
+          <p style="font-size:13px;margin-top:20px;">
+            Always verify the Bitcoin address before confirming a transaction.
           </p>
 
         </div>
@@ -957,42 +958,38 @@
 
       <div class="container">
 
-        <div class="contact-card">
+        <div class="contact-box">
 
-          <h2>
-            Contact Nina
-          </h2>
+          <h2>Contact Nina</h2>
 
           <p>
-            For availability, questions, or booking requests:
+            For appointments, availability and general enquiries,
+            contact me directly.
           </p>
 
-          <a
-            href="mailto:Sillypie94@gmail.com"
-            class="email"
-          >
-            Sillypie94@gmail.com
-          </a>
+          <div class="buttons" style="justify-content:center;">
 
-          <br>
+            <a
+              href="mailto:Sillypie94@gmail.com"
+              class="button button-primary"
+            >
+              Email Nina
+            </a>
 
-          <a
-            href="mailto:Sillypie94@gmail.com?subject=Booking%20Request"
-            class="button button-primary"
-          >
-            Email for Availability
-          </a>
+            <a
+              href="https://t.me/purelinda02"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button telegram-button"
+            >
+              Message on Telegram
+            </a>
 
-          <br>
+          </div>
 
-          <a
-            href="https://t.me/purelinda02"
-            target="_blank"
-            rel="noopener"
-            class="telegram"
-          >
+          <div class="telegram-name">
             Telegram: @purelinda02
-          </a>
+          </div>
 
         </div>
 
@@ -1012,7 +1009,7 @@
     </p>
 
     <p>
-      Massage & Relaxation • USA
+      Massage • Relaxation • Wellness
     </p>
 
     <p>
@@ -1021,66 +1018,31 @@
 
   </footer>
 
-</body>
-</html>
-<!-- PAYMENT -->
 
-<section id="payment" class="payment">
+  <!-- JAVASCRIPT -->
 
-  <div class="container">
+  <script>
+    function copyBitcoinAddress() {
+      const address =
+        document.getElementById("btcAddress").innerText;
 
-    <div class="section-heading">
-      <h2>Payment Options</h2>
-      <p>Choose your preferred payment method.</p>
-    </div>
+      navigator.clipboard.writeText(address).then(function () {
+        const button =
+          document.querySelector(".copy-button");
 
-    <div class="payment-card">
+        const originalText = button.innerText;
 
-      <div class="payment-icon">₿</div>
+        button.innerText = "Copied!";
 
-      <h3>Pay with Bitcoin</h3>
+        setTimeout(function () {
+          button.innerText = originalText;
+        }, 1800);
 
-      <p>
-        You can pay securely using Bitcoin. Tap the button below to open
-        your Bitcoin wallet.
-      </p>
+      }).catch(function () {
+        alert("Bitcoin address: " + address);
+      });
+    }
+  </script>
 
-      <a
-        href="bitcoin:bc1q73ucwzlw07qdfpf7hl2u499yluh98tej6m3zlk"
-        class="button button-primary"
-      >
-        ₿ Pay with Bitcoin
-      </a>
-
-      <div class="btc-address">
-        <strong>Bitcoin Address</strong>
-        <span>
-          bc1q73ucwzlw07qdfpf7hl2u499yluh98tej6m3zlk
-        </span>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  <p>
-    <strong>Nina's Care Service</strong>
-  </p>
-
-  <p>
-    Massage & Relaxation • USA
-  </p>
-
-  <p>
-    © 2026 Nina's Care Service. All rights reserved.
-  </p>
-  </footer>
 </body>
 </html>
