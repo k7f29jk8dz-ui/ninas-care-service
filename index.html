@@ -52,6 +52,13 @@
       text-decoration: none;
     }
 
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
     .container {
       width: min(1100px, 92%);
       margin: 0 auto;
@@ -88,7 +95,7 @@
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 18px;
       align-items: center;
       list-style: none;
     }
@@ -177,6 +184,8 @@
       border-radius: 999px;
       font-weight: 800;
       transition: 0.2s ease;
+      border: none;
+      cursor: pointer;
     }
 
     .button-primary {
@@ -368,9 +377,28 @@
       margin-bottom: 12px;
     }
 
+    .payment-card h3 {
+      font-size: 25px;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
     .payment-card p {
       color: var(--muted);
       margin-bottom: 20px;
+    }
+
+    .payment-icon {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      background: #fff0f6;
+      border-radius: 20px;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--pink-dark);
     }
 
     .btc-box {
@@ -394,6 +422,128 @@
       font-size: 14px;
       color: var(--dark);
       word-break: break-all;
+    }
+
+    .btc-address span {
+      display: block;
+      margin-top: 8px;
+    }
+
+    /* GIFT CARDS */
+
+    .gift-cards {
+      background: white;
+    }
+
+    .gift-card-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .gift-info {
+      background:
+        linear-gradient(
+          145deg,
+          #fff0f6,
+          #ffe0eb
+        );
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 35px;
+    }
+
+    .gift-info-icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .gift-info h3 {
+      color: var(--dark);
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .gift-info p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .gift-info ul {
+      list-style: none;
+    }
+
+    .gift-info li {
+      margin: 10px 0;
+      color: var(--text);
+    }
+
+    .gift-form {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: 0 12px 35px rgba(70, 30, 45, 0.06);
+    }
+
+    .gift-form h3 {
+      font-size: 26px;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: var(--dark);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      background: #fff9fb;
+      color: var(--text);
+    }
+
+    .form-group textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--pink);
+    }
+
+    .gift-note {
+      margin-top: 15px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .gift-message {
+      display: none;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 12px;
+      background: #fff0f6;
+      color: var(--pink-dark);
+      font-weight: 700;
     }
 
     /* CONTACT */
@@ -457,8 +607,12 @@
 
     /* MOBILE */
 
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
       .additional-services {
+        grid-template-columns: 1fr;
+      }
+
+      .gift-card-wrapper {
         grid-template-columns: 1fr;
       }
     }
@@ -499,7 +653,9 @@
       }
 
       .contact-card,
-      .payment-card {
+      .payment-card,
+      .gift-form,
+      .gift-info {
         padding: 28px 20px;
       }
 
@@ -524,6 +680,7 @@
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#giftcards">Gift Cards</a></li>
         <li><a href="#rules">Rules</a></li>
         <li><a href="#payment">Payment</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -566,8 +723,8 @@
               Book a Service
             </a>
 
-            <a href="#services" class="button button-secondary">
-              View Services
+            <a href="#giftcards" class="button button-secondary">
+              🎁 Gift Cards
             </a>
 
           </div>
@@ -755,6 +912,205 @@
     </section>
 
 
+    <!-- GIFT CARDS -->
+
+    <section id="giftcards" class="gift-cards">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>Gift Cards</h2>
+
+          <p>
+            Give someone the gift of relaxation and personal care.
+          </p>
+
+        </div>
+
+
+        <div class="gift-card-wrapper">
+
+          <div class="gift-info">
+
+            <div class="gift-info-icon">
+              🎁
+            </div>
+
+            <h3>
+              Give the Gift of Relaxation
+            </h3>
+
+            <p>
+              Choose a gift-card amount and send it directly to someone special.
+            </p>
+
+            <ul>
+              <li>✓ $50 Gift Card</li>
+              <li>✓ $100 Gift Card</li>
+              <li>✓ $150 Gift Card</li>
+              <li>✓ Custom amount</li>
+              <li>✓ Personalized message</li>
+            </ul>
+
+          </div>
+
+
+          <div class="gift-form">
+
+            <h3>
+              Purchase a Gift Card
+            </h3>
+
+            <form id="giftCardForm">
+
+              <div class="form-group">
+
+                <label for="giftAmount">
+                  Gift Card Amount
+                </label>
+
+                <select id="giftAmount" required>
+
+                  <option value="">
+                    Select an amount
+                  </option>
+
+                  <option value="50">
+                    $50
+                  </option>
+
+                  <option value="100">
+                    $100
+                  </option>
+
+                  <option value="150">
+                    $150
+                  </option>
+
+                  <option value="custom">
+                    Custom Amount
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div
+                class="form-group"
+                id="customAmountGroup"
+                style="display:none;"
+              >
+
+                <label for="customAmount">
+                  Custom Amount
+                </label>
+
+                <input
+                  type="number"
+                  id="customAmount"
+                  min="1"
+                  step="1"
+                  placeholder="Enter amount"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="recipientName">
+                  Recipient Name
+                </label>
+
+                <input
+                  type="text"
+                  id="recipientName"
+                  placeholder="Recipient's name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="recipientEmail">
+                  Recipient Email
+                </label>
+
+                <input
+                  type="email"
+                  id="recipientEmail"
+                  placeholder="recipient@example.com"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="senderName">
+                  Your Name
+                </label>
+
+                <input
+                  type="text"
+                  id="senderName"
+                  placeholder="Your name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="giftMessage">
+                  Personal Message
+                </label>
+
+                <textarea
+                  id="giftMessage"
+                  placeholder="Write a message..."
+                ></textarea>
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="button button-primary"
+                style="width:100%;"
+              >
+                Continue to Payment
+              </button>
+
+
+              <p class="gift-note">
+                Gift cards are subject to availability and the service
+                provider's redemption terms.
+              </p>
+
+
+              <div
+                id="giftCardMessage"
+                class="gift-message"
+              ></div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
     <!-- BOOKING -->
 
     <section id="booking" class="booking">
@@ -774,7 +1130,10 @@
             will be sent directly to you.
           </p>
 
-          <div class="buttons" style="justify-content:center;">
+          <div
+            class="buttons"
+            style="justify-content:center;"
+          >
 
             <a
               href="mailto:Sillypie94@gmail.com?subject=Booking%20Request"
@@ -916,16 +1275,42 @@
 
       <div class="container">
 
-        <div class="payment-card">
+        <div class="section-heading">
 
           <h2>
-            Payment
+            Payment Options
           </h2>
 
           <p>
-            Bitcoin is available as a payment option.
-            Please confirm the payment details before sending funds.
+            Choose your preferred payment method.
           </p>
+
+        </div>
+
+
+        <div class="payment-card">
+
+          <div class="payment-icon">
+            ₿
+          </div>
+
+          <h3>
+            Pay with Bitcoin
+          </h3>
+
+          <p>
+            You can pay using Bitcoin. Tap the button below
+            to open a compatible Bitcoin wallet.
+          </p>
+
+
+          <a
+            href="bitcoin:bc1q73ucwzlw07qdfpf7hl2u499yluh98tej6m3zlk"
+            class="button button-primary"
+          >
+            ₿ Pay with Bitcoin
+          </a>
+
 
           <div class="btc-box">
 
@@ -938,6 +1323,7 @@
             </div>
 
           </div>
+
 
           <p>
             After sending a payment, contact Nina with your
@@ -1021,66 +1407,89 @@
 
   </footer>
 
-</body>
-</html>
-<!-- PAYMENT -->
 
-<section id="payment" class="payment">
+  <!-- GIFT CARD FORM SCRIPT -->
 
-  <div class="container">
+  <script>
 
-    <div class="section-heading">
-      <h2>Payment Options</h2>
-      <p>Choose your preferred payment method.</p>
-    </div>
+    const giftAmount = document.getElementById("giftAmount");
+    const customAmountGroup =
+      document.getElementById("customAmountGroup");
 
-    <div class="payment-card">
+    const customAmount =
+      document.getElementById("customAmount");
 
-      <div class="payment-icon">₿</div>
+    const giftCardForm =
+      document.getElementById("giftCardForm");
 
-      <h3>Pay with Bitcoin</h3>
-
-      <p>
-        You can pay securely using Bitcoin. Tap the button below to open
-        your Bitcoin wallet.
-      </p>
-
-      <a
-        href="bitcoin:bc1q73ucwzlw07qdfpf7hl2u499yluh98tej6m3zlk"
-        class="button button-primary"
-      >
-        ₿ Pay with Bitcoin
-      </a>
-
-      <div class="btc-address">
-        <strong>Bitcoin Address</strong>
-        <span>
-          bc1q73ucwzlw07qdfpf7hl2u499yluh98tej6m3zlk
-        </span>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+    const giftCardMessage =
+      document.getElementById("giftCardMessage");
 
 
-<!-- FOOTER -->
+    giftAmount.addEventListener("change", function () {
 
-<footer>
+      if (this.value === "custom") {
 
-  <p>
-    <strong>Nina's Care Service</strong>
-  </p>
+        customAmountGroup.style.display = "block";
+        customAmount.required = true;
 
-  <p>
-    Massage & Relaxation • USA
-  </p>
+      } else {
 
-  <p>
-    © 2026 Nina's Care Service. All rights reserved.
-  </p>
-  </footer>
+        customAmountGroup.style.display = "none";
+        customAmount.required = false;
+        customAmount.value = "";
+
+      }
+
+    });
+
+
+    giftCardForm.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+      let amount = giftAmount.value;
+
+      if (amount === "custom") {
+
+        amount = customAmount.value;
+
+        if (!amount || Number(amount) < 1) {
+
+          giftCardMessage.style.display = "block";
+
+          giftCardMessage.textContent =
+            "Please enter a valid gift-card amount.";
+
+          return;
+
+        }
+
+      }
+
+
+      /*
+        PAYMENT INTEGRATION GOES HERE.
+
+        This demo currently does not charge the customer.
+
+        For a real gift-card system, this button should send the
+        order to your secure payment server/payment provider.
+
+        Never put private payment API secret keys in this HTML file.
+      */
+
+
+      giftCardMessage.style.display = "block";
+
+      giftCardMessage.textContent =
+        "Gift card selected for $" +
+        Number(amount).toFixed(2) +
+        ". Payment processing will be connected next.";
+
+    });
+
+  </script>
+
 </body>
 </html>
